@@ -15,11 +15,16 @@ Welcome to my digital space. I'm a software engineer focused on low-level system
 
 <div class="tab-panels">
 
-<div class="tab-panel" id="panel-projects">
+<div class="tab-panel" id="panel-projects" onclick="const t = event.target.closest('.callout-title'); if (t) { const c = t.parentElement; if (!c.classList.contains('is-collapsed')) { this.querySelectorAll('.callout').forEach(el => { if (el !== c) el.classList.add('is-collapsed'); }); } }">
 
-* **[Project Name 1](https://github.com/yourusername/repo1)** — High-performance pipeline for real-time graphics and compute shaders. Built with C++ and Vulkan.
-* **[Project Name 2](https://github.com/yourusername/repo2)** — Custom compiler optimization passes written via LLVM to target modern architectures.
-* **[Project Name 3](https://github.com/yourusername/repo3)** — Lightweight systems utility designed for Linux environments.
+> [!note]- Project Name 1
+> High-performance pipeline for real-time graphics and compute shaders. Built with C++ and Vulkan. — **[View on GitHub ↗](https://github.com/yourusername/repo1)**
+
+> [!note]- Project Name 2
+> Custom compiler optimization passes written via LLVM to target modern architectures. — **[View on GitHub ↗](https://github.com/yourusername/repo2)**
+
+> [!note]- Project Name 3
+> Lightweight systems utility designed for Linux environments. — **[View on GitHub ↗](https://github.com/yourusername/repo3)**
  
 </div> <!-- End Projects Panel -->
 

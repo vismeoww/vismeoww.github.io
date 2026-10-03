@@ -144,3 +144,45 @@ article.landing-page {
     transform: translateY(0);
   }
 }
+
+// Style Markdown Callouts inside #panel-projects as clean cascading buttons
+#panel-projects .callout {
+  --color: var(--darkgray);
+  --border: var(--lightgray);
+  --bg: var(--lightgray);
+  margin-bottom: 0.65rem;
+  border-radius: 6px;
+  padding: 0 1rem;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: var(--gray);
+  }
+
+  // Hide the default pencil/note icon, keep only the title and fold arrow
+  .callout-icon {
+    display: none;
+  }
+
+  .callout-title {
+    cursor: pointer;
+    padding: 0.75rem 0;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--codeFont);
+    font-size: 1rem;
+  }
+
+  // Active/expanded look when clicked open
+  &:not(.is-collapsed) {
+    --bg: var(--highlight);
+    --border: var(--secondary);
+    --color: var(--secondary);
+
+    .callout-content {
+      padding-bottom: 0.85rem;
+      border-top: 1px solid var(--lightgray);
+      padding-top: 0.75rem;
+    }
+  }
+}
