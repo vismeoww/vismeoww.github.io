@@ -15,9 +15,9 @@ cssclasses: [landing-page]
 
 <div class="portfolio-tabs">
 <input type="radio" name="section-tabs" id="tab-projects" class="tab-input" checked>
-<label for="tab-projects" class="tab-btn">🚀 Projects</label>
+<label for="tab-projects" class="tab-btn"> Projects</label>
 <input type="radio" name="section-tabs" id="tab-blogs" class="tab-input">
-<label for="tab-blogs" class="tab-btn">📝 Writing & Blogs</label>
+<label for="tab-blogs" class="tab-btn"> Writing & Blogs</label>
 
 <div class="tab-panels">
 
@@ -41,7 +41,7 @@ allows us to run multiple PFAs at the same time\
 > A simple compiler for a language similiar to c type infered and strictly
   typed old implementation in standard ML currently being exported to Haskell\
 > **[View on GitHub - Standard ML ↗](https://github.com/JarYamsiv/compiler-lab-sem6/tree/master/project)**\
-> **[View on Hackage - Haskell ↗](https://github.com/JarYamsiv/Haskell/tree/master/parsec/pretty-printer)**
+> **[View on GitHub - Haskell ↗](https://github.com/JarYamsiv/Haskell/tree/master/parsec/pretty-printer)**
 
 > [!note]- Voxel Engine
 > A simple voxel engine to render 3d objects

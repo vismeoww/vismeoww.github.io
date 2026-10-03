@@ -50,6 +50,62 @@ article.landing-page {
   }
 }
 
+// Mobile Responsive Fixes
+@media (max-width: 800px) {
+  body[data-slug="index"] .page,
+  .page.landing-page {
+    > #quartz-body {
+      padding: 0 !important;
+      display: block !important;
+    }
+
+    > #quartz-body .center {
+      width: 92% !important;
+      margin: 1.25rem auto !important;
+      font-size: 1.05rem !important; // Scales down from 1.3rem for mobile screens
+    }
+
+    article h2 {
+      font-size: 1.6rem !important; // Scales down from 2.2rem so it doesn't wrap awkwardly
+      padding-bottom: 0.85rem !important;
+    }
+  }
+
+  .portfolio-tabs {
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+
+    .tab-btn {
+      flex: 1 1 calc(50% - 0.5rem); // Forces both buttons onto 1 row (50% width each)
+      padding: 0.55rem 0.5rem;
+      font-size: 0.85rem;
+    }
+
+    .tab-panel {
+      padding: 1rem;
+    }
+  }
+
+  #panel-projects .callout,
+  #panel-projects .callout[data-callout] {
+    padding: 0 0.5rem;
+
+    .callout-title {
+      font-size: 1.05rem !important;
+      padding: 0.6rem 0;
+    }
+
+    > .callout-content {
+      padding-left: 0.85rem !important;
+
+      > *,
+      > :first-child {
+        font-size: 0.85rem !important;
+      }
+    }
+  }
+}
+
 // Horizontal Tab Buttons & Panels
 .portfolio-tabs {
   display: flex;
@@ -64,10 +120,11 @@ article.landing-page {
 
   // Style the labels as horizontal buttons
   .tab-btn {
+    flex: 1 1 auto;
     cursor: pointer;
     padding: 0.6rem 1.25rem;
     font-family: var(--codeFont);
-    font-size: 0.95rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: var(--darkgray);
     background-color: var(--lightgray);
