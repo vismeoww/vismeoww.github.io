@@ -36,14 +36,12 @@ article.landing-page {
   margin-top: 1rem;
 
   h2 {
-    // border-bottom: 1px solid var(--lightgray);
-    // padding-bottom: 0.4rem;
-    // margin-top: 2.5rem;
   font-family: var(--codeFont) !important; // Switches to IBM Plex Mono
-  font-size: 2.2rem !important;            // Much larger
+  font-size: 2.5rem !important;            // Much larger
   // letter-spacing: 0.1em !important;
-  border-bottom: 3px solid #ff3366 !important;
+  // border-bottom: 3px solid #ff3366 !important;
   padding-bottom: 1.5rem !important;
+  padding-top: 1.5rem !important;
   }
 
   ul li {
@@ -103,9 +101,9 @@ article.landing-page {
   .tab-panel {
     display: none;
     padding: 1.25rem 1.5rem;
-    border: 1px solid var(--lightgray);
+    // border: 1px solid var(--lightgray);
     border-radius: 8px;
-    background-color: var(--light);
+    background-color: var(--grey);
     animation: tabFadeIn 0.2s ease-in-out;
 
     ul {
@@ -145,21 +143,70 @@ article.landing-page {
   }
 }
 
+// // Style Markdown Callouts inside #panel-projects as clean cascading buttons
+// #panel-projects .callout,
+// #panel-projects .callout[data-callout] {
+//   --color: var(--darkgray);
+//   --border: var(--lightgray);
+//   --bg: transparent !important;
+//   background-color: transparent !important;
+//   margin-bottom: 0.65rem;
+//   border-radius: 6px;
+//   border: 1px solid var(--lightgray);
+//   padding: 0 1rem;
+//   transition: all 0.2s ease;
+//
+//   &:hover {
+//     border-color: var(--gray);
+//   }
+//
+//   // Hide the default pencil/note icon, keep only the title and fold arrow
+//   .callout-icon {
+//     display: none;
+//   }
+//
+//   .callout-title {
+//     cursor: pointer;
+//     padding: 0.75rem 0;
+//     justify-content: space-between;
+//     align-items: center;
+//     font-family: var(--codeFont);
+//     font-size: 1rem;
+//     font-color: var(--darkgray);
+//   }
+//
+//   // Active/expanded look when clicked open
+//   &:not(.is-collapsed) {
+//     --bg: var(--highlight);
+//     --border: var(--secondary);
+//     --color: var(--secondary);
+//
+//     .callout-content {
+//       padding-bottom: 0.85rem;
+//       border-top: 0px solid var(--lightgray);
+//       padding-top: 0.75rem;
+//     }
+//   }
+// }
+
 // Style Markdown Callouts inside #panel-projects as clean cascading buttons
-#panel-projects .callout {
+#panel-projects .callout,
+#panel-projects .callout[data-callout] {
   --color: var(--darkgray);
   --border: var(--lightgray);
-  --bg: var(--lightgray);
+  --bg: transparent !important;
+  background-color: transparent !important;
   margin-bottom: 0.65rem;
   border-radius: 6px;
+  border: 0px solid var(--lightgray);
   padding: 0 1rem;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 
   &:hover {
     border-color: var(--gray);
   }
 
-  // Hide the default pencil/note icon, keep only the title and fold arrow
+  // Hide the default pencil/note icon
   .callout-icon {
     display: none;
   }
@@ -170,19 +217,75 @@ article.landing-page {
     justify-content: space-between;
     align-items: center;
     font-family: var(--codeFont);
-    font-size: 1rem;
+    font-size: 1.5rem !important;
+
+    .fold-callout-icon {
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1) !important;
+    }
   }
 
-  // Active/expanded look when clicked open
+  // Override Quartz's default .callout-content collapse rules
+  > .callout-content {
+    display: block !important;
+    overflow: hidden !important;
+    max-height: 500px !important;
+    opacity: 1 !important;
+    padding-left: 1.25rem !important; // Indents the description text
+    margin-left: 0.25rem !important;  // Slightly offsets from the left edge of the title
+    border-left: 2px solid var(--lightgray) !important; // Optional: subtle vertical guide line (set to 'none' if you just want empty space)
+    transform: translateY(0) !important;
+    transition:
+      max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.35s ease,
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      padding 0.3s ease !important;
+
+    // Stop Quartz's base.scss from forcing height: 0 and margin-top: -1rem on the <p> inside
+    > *,
+    > :first-child {
+      font-size: 1.2rem !important;
+      height: auto !important;
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      overflow: visible !important;
+      transition: none !important;
+    }
+  }
+
+  // Collapsed state (animated closed)
+  &.is-collapsed > .callout-content {
+    max-height: 0px !important;
+    opacity: 0 !important;
+    transform: translateY(-8px) !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    pointer-events: none;
+  }
+
+  // Expanded state (animated open)
   &:not(.is-collapsed) {
     --bg: var(--highlight);
     --border: var(--secondary);
     --color: var(--secondary);
 
-    .callout-content {
-      padding-bottom: 0.85rem;
-      border-top: 1px solid var(--lightgray);
-      padding-top: 0.75rem;
+    > .callout-content {
+      padding-bottom: 0.85rem !important;
+      padding-top: 0.25rem !important;
+      border-top: none !important;
+      animation: projectReveal 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     }
+  }
+}
+
+@keyframes projectReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
