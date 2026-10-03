@@ -269,13 +269,16 @@ layout:
         beforeBody: []
         left: []
         right: []
-    content: {}
+    content:
+      template: minimal
     folder:
+      template: minimal
       exclude:
         - reader-mode
       positions:
         right: []
     tag:
+      template: minimal
       exclude:
         - reader-mode
       positions:
