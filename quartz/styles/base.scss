@@ -4,6 +4,17 @@
 @use "./syntax.scss";
 @use "./callouts.scss";
 
+:root,
+:root[saved-theme="dark"],
+:root[saved-theme="light"] {
+  --light: #000000 !important;
+  --background-primary: #000000 !important;
+  --background-primary-alt: #000000 !important;
+  --darkgray: #d4d4d4 !important; // Keeps body text light & readable
+  --dark: #ffffff !important;     // Keeps headings crisp white
+  --lightgray: #1a1a1a !important; // Subtle dark gray for buttons & borders
+}
+
 html {
   scroll-behavior: smooth;
   text-size-adjust: none;

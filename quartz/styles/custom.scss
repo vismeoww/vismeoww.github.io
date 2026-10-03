@@ -48,6 +48,24 @@ article.landing-page {
     // margin-bottom: 0.85rem;
     line-height: 1.65;
   }
+  // Force body paragraphs, lists, and project descriptions to stay light
+  article p,
+  article li,
+  .callout-content p {
+    font-weight: 200 !important; // Change to 400 if 300 feels too thin
+    color: #b8b8b8 !important;   // Slightly softer gray so it doesn't glare on #000000
+  }
+
+  // Quartz makes all <a> links semi-bold (600) by default—lower them to 400 or 500
+  article a {
+    font-weight: 400 !important;
+  }
+
+  // Keep explicit **bold** markdown text slightly heavier so it still stands out
+  article strong {
+    font-weight: 500 !important;
+    color: #e5e5e5 !important;
+  }
 }
 
 // Mobile Responsive Fixes
@@ -62,7 +80,7 @@ article.landing-page {
     > #quartz-body .center {
       width: 92% !important;
       margin: 1.25rem auto !important;
-      font-size: 1.05rem !important; // Scales down from 1.3rem for mobile screens
+      font-size: 0.65rem !important; // Scales down from 1.3rem for mobile screens
     }
 
     article h2 {
@@ -91,16 +109,17 @@ article.landing-page {
     padding: 0 0.5rem;
 
     .callout-title {
-      font-size: 1.05rem !important;
+      font-size: 0.9rem !important;
       padding: 0.6rem 0;
     }
 
     > .callout-content {
+      max-height: none !important;
       padding-left: 0.85rem !important;
 
       > *,
       > :first-child {
-        font-size: 0.85rem !important;
+        font-size: 0.5rem !important;
       }
     }
   }
@@ -285,7 +304,7 @@ article.landing-page {
   > .callout-content {
     display: block !important;
     overflow: hidden !important;
-    max-height: 500px !important;
+    max-height: none !important;
     opacity: 1 !important;
     padding-left: 1.25rem !important; // Indents the description text
     margin-left: 0.25rem !important;  // Slightly offsets from the left edge of the title

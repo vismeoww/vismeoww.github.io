@@ -5,8 +5,6 @@ cssclasses: [landing-page]
 
 ## Hello World!!
 
-<p>Welcome to my digital space.</p>
-
 <p>I'm Vismay Raj, currently working as a Senior Compiler Engineer at Imagination Technologies.
     I completed my Undergraduate studies at Indian Institute of Technology Palakkad.</p>
 <p>My interests span Compilers, Codegen, Functional programming, Formal verification, Databases,
